@@ -1,0 +1,95 @@
+{
+  "name": "@dakaio/object-storage",
+  "version": "0.1.0",
+  "description": "Objects in Cloudflare R2 or any S3 API through aws4fetch, or in a local folder while developing, behind one small interface: put, get, delete, a whole folder at once, links that expire. Plus a sharp helper that re-encodes an upload without its EXIF.",
+  "license": "MIT",
+  "author": "dakaio.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JohnDaka/object-storage.git"
+  },
+  "homepage": "https://github.com/JohnDaka/object-storage#readme",
+  "bugs": "https://github.com/JohnDaka/object-storage/issues",
+  "keywords": [
+    "r2",
+    "cloudflare-r2",
+    "s3",
+    "minio",
+    "object-storage",
+    "aws4fetch",
+    "presigned-url",
+    "upload",
+    "sharp",
+    "webp",
+    "exif"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./image": {
+      "types": "./dist/image.d.ts",
+      "default": "./dist/image.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "typesVersions": {
+    "*": {
+      "image": [
+        "./dist/image.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint .",
+    "format": "eslint . --fix",
+    "test": "node --test \"src/**/*.spec.ts\"",
+    "test:coverage": "node --test --experimental-test-coverage --test-coverage-exclude=\"src/**/*.spec.ts\" --test-coverage-lines=100 --test-coverage-branches=100 --test-coverage-functions=100 \"src/**/*.spec.ts\"",
+    "clean": "rimraf dist",
+    "prepack": "npm run clean && npm run build",
+    "release": "node scripts/release.mjs"
+  },
+  "dependencies": {
+    "aws4fetch": "^1.0.20"
+  },
+  "peerDependencies": {
+    "sharp": ">=0.35"
+  },
+  "peerDependenciesMeta": {
+    "sharp": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^24.0.0",
+    "eslint": "^10.0.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
+    "globals": "^17.0.0",
+    "prettier": "^3.6.0",
+    "rimraf": "^6.1.3",
+    "sharp": "^0.35.5",
+    "typescript": "^5.9.0",
+    "typescript-eslint": "^8.71.0"
+  },
+  "packageManager": "pnpm@11.20.0"
+}
