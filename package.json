@@ -1,6 +1,6 @@
 {
   "name": "@dakaio/object-storage",
-  "version": "0.1.0",
+  "version": "1.1.0",
   "description": "Objects in Cloudflare R2 or any S3 API through aws4fetch, or in a local folder while developing, behind one small interface: put, get, delete, a whole folder at once, links that expire. Plus a sharp helper that re-encodes an upload without its EXIF.",
   "license": "MIT",
   "author": "dakaio.com",
